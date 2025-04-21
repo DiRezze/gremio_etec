@@ -1,0 +1,16 @@
+.mask-link-tree-img{
+    mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 1) 100%);
+    object-position: bottom;
+    background-image: url("https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2020/10/Foto-ETEC-5.jpg?is-pending-load=1");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.main-banner {
+    background-image: url("https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2020/10/Foto-ETEC-5.jpg?is-pending-load=1");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 16rem;
+}
