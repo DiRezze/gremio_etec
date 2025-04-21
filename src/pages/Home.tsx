@@ -1,6 +1,6 @@
 import {Calendar} from "@/components/ui/calendar.tsx";
 import { Separator } from "@/components/ui/separator"
-import {Evento, eventos} from "@/constants/vestibulares.ts";
+import {Evento, eventos} from "@/content/vestibulares.ts";
 import {useEffect, useState} from "react";
 import {MainFooter} from "@/components/custom/mainFooter.tsx";
 

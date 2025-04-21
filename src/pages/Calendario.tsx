@@ -1,5 +1,5 @@
 import {Card, CardDescription, CardHeader, CardTitle} from "@/components/ui/card.tsx";
-import {eventos as vestibulares} from "@/constants/vestibulares.ts";
+import {eventos as vestibulares} from "@/content/vestibulares.ts";
 import {Alert, AlertDescription, AlertTitle} from "@/components/ui/alert.tsx";
 import {InfoIcon} from "lucide-react";
 
