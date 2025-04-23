@@ -1,6 +1,7 @@
 import {Calendar} from "@/components/ui/calendar.tsx";
 import { Separator } from "@/components/ui/separator"
-import {Evento, eventos} from "@/content/vestibulares.ts";
+import {vestibulares} from "@/content/vestibulares.ts";
+import { Evento } from "@/types/calendarTypes";
 import {useEffect, useState} from "react";
 import {MainFooter} from "@/components/custom/mainFooter.tsx";
 
@@ -10,7 +11,7 @@ const Home = () => {
 
     useEffect(() => {
         const now = new Date();
-        const eventosFiltrados = eventos
+        const eventosFiltrados = vestibulares
             .map((evento) => ({
                 ...evento
             }))
@@ -63,7 +64,7 @@ const Home = () => {
                       </div>
                   </div>
               </div>
-              <aside className="flex flex-col gap-2 items-end pr-2 w-full hidden md:flex items-center">
+              <aside className="flex-col gap-2 pr-2 w-full hidden md:flex items-center">
                   <Calendar
                       mode="default"
                       className="border rounded-md shadow w-min"
@@ -75,7 +76,7 @@ const Home = () => {
                           {eventosProximos && eventosProximos.map((evento, index) => (
                               <li key={index} className="ml-4">
                                   <h3 className="text-justify">
-                                      <span style={{color: evento.color}}>• </span>
+                                      <span style={{color: evento.cor}}>• </span>
                                       {evento.nome}
                                   </h3>
                                   <span className="text-neutral-500 text-sm">{new Date(evento.data).toLocaleDateString("pt-BR")}</span>

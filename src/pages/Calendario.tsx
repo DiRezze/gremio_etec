@@ -1,9 +1,9 @@
 import {Card, CardDescription, CardHeader, CardTitle} from "@/components/ui/card.tsx";
-import {eventos as vestibulares} from "@/content/vestibulares.ts";
 import {Alert, AlertDescription, AlertTitle} from "@/components/ui/alert.tsx";
+import { vestibulares } from "@/content/vestibulares";
 import {InfoIcon} from "lucide-react";
 
-function ordenarEventosPorData(eventos: { nome: string; data: string; color?:string }[]) {
+function ordenarEventosPorData(eventos: { nome: string; data: string; cor:string }[]) {
     return eventos.sort((a, b) => new Date(a.data).getTime() - new Date(b.data).getTime());
 }
 
@@ -25,7 +25,7 @@ const Calendario = () => {
                     </AlertDescription>
                 </Alert>
                 {eventosOrdenados.map((evento, index) => (
-                    <Card key={index} className="border-l-emerald-500 border-l-8" style={{borderLeftColor: `${evento.color}`}}>
+                    <Card key={index} className="border-l-emerald-500 border-l-8" style={{borderLeftColor: `${evento.cor}`}}>
                         <CardHeader>
                             <CardTitle>{evento.nome}</CardTitle>
                             <CardDescription>{new Date(evento.data).toLocaleDateString("pt-BR")}</CardDescription>
