@@ -1,37 +1,11 @@
 import { Card, CardContent } from "@/components/ui/card";
-import {AppWindow, BadgeCheck, Instagram, MessageCircleMoreIcon} from "lucide-react";
 import {Link} from "react-router-dom";
 import { motion } from "framer-motion";
 import FooterRights from "@/components/custom/footerRights.tsx";
+import {links} from "@/content/links.ts";
 
 
 export default function LinkTree() {
-    const links = [
-        {
-            label: "Instagram do Grêmio",
-            icon: Instagram,
-            href: "https://www.instagram.com/ctrlz.2025/",
-            color: "#E4405F"
-        },
-        {
-            label: "Canal no Whatsapp",
-            icon: MessageCircleMoreIcon,
-            href: "https://whatsapp.com/channel/0029VbAN75H7tkj8RWr4Ij2Q",
-            color: "#25D366"
-        },
-        {
-            label: "Página Web",
-            icon: AppWindow,
-            href: "/",
-            color: "#0f70d6"
-        },
-        {
-            label: "Simulado Fuvest",
-            icon: BadgeCheck,
-            href: "https://app.fuvest.br/login",
-            color: "#00ADEE",
-        },
-    ];
 
     return (
         <main className="flex flex-col items-center bg-background overflow-x-hidden">

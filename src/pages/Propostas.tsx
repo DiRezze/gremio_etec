@@ -1,4 +1,4 @@
-import { propostas } from "@/constants/propostas.ts";
+import { propostas } from "@/content/propostas.ts";
 import { Card, CardHeader } from "@/components/ui/card.tsx";
 
 const Propostas = () => {
