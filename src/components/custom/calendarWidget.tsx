@@ -1,7 +1,8 @@
 import {Calendar} from "@/components/ui/calendar.tsx";
 import {Separator} from "@/components/ui/separator.tsx";
 import {useEffect, useState} from "react";
-import {Evento, eventos} from "@/constants/vestibulares.ts";
+import {vestibulares as eventos} from "@/content/vestibulares";
+import { Evento } from "@/types/calendarTypes";
 
 export default function CalendarWidget() {
     const [eventosProximos, setEventosProximos] = useState<Array<Evento>>();
@@ -31,7 +32,7 @@ export default function CalendarWidget() {
                     {eventosProximos && eventosProximos.map((evento, index) => (
                         <li key={index} className="ml-4">
                             <h3 className="text-justify">
-                                <span style={{color: evento.color}}>• </span>
+                                <span style={{color: evento.cor}}>• </span>
                                 {evento.nome}
                             </h3>
                             <span className="text-neutral-500 text-sm">{new Date(evento.data).toLocaleDateString("pt-BR")}</span>

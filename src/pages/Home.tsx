@@ -46,7 +46,7 @@ const Home = () => {
                       </div>
                   </div>
               </div>
-              <aside className="flex flex-col gap-2 items-end pr-2 w-full hidden md:flex items-center">
+              <aside className="flex-col gap-2 pr-2 w-full hidden md:flex items-center">
                   <CalendarWidget />
               </aside>
           </main>
