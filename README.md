@@ -1,4 +1,4 @@
-# Página para o Grêmio Estudanti
+# Página para o Grêmio Estudantil
 
 Este repositório contém o código-fonte do **site oficial do Grêmio Estudantil Control Z 2025 da Etec Monsenhor Antonio Magliano (Etec MAM)**, desenvolvido com o objetivo de fortalecer a comunicação com os alunos, divulgar ações e eventos, e apresentar propostas e iniciativas das diferentes áreas do grêmio de forma moderna e organizada.
 
