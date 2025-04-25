@@ -6,39 +6,39 @@ export const propostas = {
       "Mais palestras e divulgação de minicursos.",
       "Instagram próprio da Chapa.",
       "Divulgação de provas, vestibulares, intercâmbios e assuntos escolares.",
-      "Enquetes no Instagram para decisão de ações."
+      "Enquetes no Instagram para decisão de ações.",
     ],
     icon: Newspaper,
   },
-  "Desportivo": {
+  Desportivo: {
     lista: [
       "Interclasse em julho e após o Provão Paulista.",
       "Inscrição da escola no JEESP 2026 para as 1ªs e 2ªs séries.*",
-      "Caracterização das salas para competições (ex: camisetas iguais)."
+      "Caracterização das salas para competições (ex: camisetas iguais).",
     ],
     icon: Trophy,
   },
-  "Cultural": {
+  Cultural: {
     lista: [
       "Música nos intervalos (moderadamente).",
       "Caracterização da escola com apoio da coordenação de eventos ou linguagens.",
-      "Organização de Show de Talentos.*"
+      "Organização de Show de Talentos.*",
     ],
     icon: Palette,
   },
-  "Eventos": {
+  Eventos: {
     lista: [
       "Organização de eventos como: Halloween, Festa Junina, Gincanas, Carnaval, Dia de Integração, etc.",
-      "Votação dos eventos via enquetes no Instagram da Chapa."
+      "Votação dos eventos via enquetes no Instagram da Chapa.",
     ],
     icon: Calendar,
   },
-  "Finanças": {
+  Finanças: {
     lista: [
       "Arrecadação de verba através de vendas e ações em eventos.",
       "Inscrição da escola nas olimpíadas ONHB, OBA, OBR, ONC e muitas outras.",
-      "Contribuição com a APM."
+      "Contribuição com a APM.",
     ],
     icon: DollarSign,
-  }
+  },
 };
