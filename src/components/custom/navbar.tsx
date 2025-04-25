@@ -95,7 +95,7 @@ function Navbar() {
                                             <NavigationMenuLink asChild>
                                                 <a
                                                     className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                                                    href="/calendario"
+                                                    href="/calendario/tudo"
                                                 >
                                                     <School className="h-6 w-6"/>
                                                     <div className="mb-2 mt-4 text-lg font-medium">
@@ -108,13 +108,13 @@ function Navbar() {
                                                 </a>
                                             </NavigationMenuLink>
                                         </li>
-                                        <ListItem href="/calendario" title="Eventos">
+                                        <ListItem href="/calendario/internos" title="Eventos">
                                             Eventos internos da Etec MAM
                                         </ListItem>
-                                        <ListItem href="/calendario" title="Olimpíadas">
+                                        <ListItem href="/calendario/olimpiadas" title="Olimpíadas">
                                             Competições do conhecimento em que a escola está inscrita
                                         </ListItem>
-                                        <ListItem href="/calendario" title="Vestibulares">
+                                        <ListItem href="/calendario/vestibulares" title="Vestibulares">
                                             Exames de ingresso no Ensino Superior
                                         </ListItem>
                                     </ul>
@@ -167,7 +167,7 @@ function Navbar() {
                         </Button>
                     </Link>
                     <Link
-                        to="/calendario"
+                        to="/calendario/tudo"
                         className="w-full"
                     >
                         <Button
