@@ -86,7 +86,7 @@ export const vestibulares: Evento[] = [
   },
   {
     nome: "Fim da Solicitação de Isenção da Taxa - Enem",
-    data: "2025-04-25T00:00:00-03:00",
+    data: "2025-05-02T00:00:00-03:00",
     cor: "#FF5C58",
   },
   {
