@@ -1,14 +1,20 @@
 import {Calendar} from "@/components/ui/calendar.tsx";
 import {Separator} from "@/components/ui/separator.tsx";
 import {useEffect, useState} from "react";
-import {vestibulares as eventos} from "@/content/vestibulares";
+import {vestibulares} from "@/content/vestibulares";
+import { olimpiadas } from "@/content/olimpiadas";
+import {internos} from "@/content/internos";
 import { Evento } from "@/types/calendarTypes";
 
 export default function CalendarWidget() {
     const [eventosProximos, setEventosProximos] = useState<Array<Evento>>();
 
     useEffect(() => {
+
         const now = new Date();
+
+        const eventos = [...vestibulares,...olimpiadas, ...internos];
+
         const eventosFiltrados = eventos
             .map((evento) => ({
                 ...evento
