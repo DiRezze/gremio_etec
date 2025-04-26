@@ -126,17 +126,17 @@ export const olimpiadas: Evento[] = [
     cor: "#00ffe1",
   },
   {
-    nome: "OGPD - Prazo de inscrição",
+    nome: "OBGP - Prazo de inscrição",
     data: "2025-04-30T00:00:00-03:00",
     cor: "#0F6F1C",
   },
   {
-    nome: "OGPD - Avaliação",
+    nome: "OBGP - Avaliação",
     data: "2025-05-07T00:00:00-03:00",
     cor: "#0F6F1C",
   },
   {
-    nome: "OGPD - Divulgação dos resultados",
+    nome: "OBGP - Divulgação dos resultados",
     data: "2025-05-14T00:00:00-03:00",
     cor: "#0F6F1C",
   },
