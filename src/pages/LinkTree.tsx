@@ -33,6 +33,7 @@ export default function LinkTree() {
           >
             <Link
               to={link.href}
+              target="_blank"
               className="block hover:scale-[1.01] transition-all"
             >
               <Card className="shadow rounded-2xl p-2 h-72 flex items-center justify-center">

@@ -1,9 +1,11 @@
 import {
   AppWindow,
   BadgeCheck,
+  BookOpenCheck,
   Instagram,
   LucideIcon,
   MessageCircleMoreIcon,
+  Wallet,
 } from "lucide-react";
 
 interface LinkInterface {
@@ -14,10 +16,10 @@ interface LinkInterface {
 }
 export const links: Array<LinkInterface> = [
   {
-    label: "Instagram do Grêmio",
-    icon: Instagram,
-    href: "https://www.instagram.com/ctrlz.2025/",
-    color: "#E4405F",
+    label: "Edital - Interclasse",
+    icon: BookOpenCheck,
+    href: "https://docs.google.com/document/d/1pQHPUML564ed5j9Hp3CGKWpgpSwi649R/edit?usp=sharing&ouid=111929754273037560206&rtpof=true&sd=true",
+    color: "#0F984B",
   },
   {
     label: "Canal no Whatsapp",
@@ -30,6 +32,18 @@ export const links: Array<LinkInterface> = [
     icon: AppWindow,
     href: "/",
     color: "#0f70d6",
+  },
+  {
+    label: "Instagram do Grêmio",
+    icon: Instagram,
+    href: "https://www.instagram.com/ctrlz.2025/",
+    color: "#E4405F",
+  },
+  {
+    label: "Isenções Enem",
+    icon: Wallet,
+    href: "https://enem.inep.gov.br/participante/#!/inicial",
+    color: "#00ADEE",
   },
   {
     label: "Simulado Fuvest",
