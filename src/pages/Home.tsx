@@ -1,5 +1,7 @@
-import { MainFooter } from "@/components/custom/mainFooter.tsx";
 import CalendarWidget from "@/components/custom/calendarWidget.tsx";
+import FooterRights from "@/components/custom/footerRights";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { BusIcon, InfoIcon } from "lucide-react";
 
 const Home = () => {
   return (
@@ -16,6 +18,13 @@ const Home = () => {
             <span></span>
           </div>
           <div className="w-4/5 mt-6 flex flex-col gap-8 text-justify">
+            <Alert>
+              <BusIcon className="h-4 w-4" />
+              <AlertTitle>Visita à Unesp</AlertTitle>
+              <AlertDescription>
+                Os documentos necessários para inscrição na visita monitorada à Unesp Marília podem ser encontrados  <a href="/links" className="text-green-500 font-semibold underline">neste link</a>
+              </AlertDescription>
+            </Alert>
             <section>
               <h2 className="text-2xl font-bold mb-2">
                 O que é o Grêmio Estudantil?
@@ -56,7 +65,7 @@ const Home = () => {
           <CalendarWidget />
         </aside>
       </main>
-      <MainFooter />
+      <FooterRights />
     </div>
   );
 };

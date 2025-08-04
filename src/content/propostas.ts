@@ -22,7 +22,7 @@ export const propostas = {
     lista: [
       "Música nos intervalos (moderadamente).",
       "Caracterização da escola com apoio da coordenação de eventos ou linguagens.",
-      "Organização de Show de Talentos.*",
+      "Organização de Dia Cultural.*",
     ],
     icon: Palette,
   },

@@ -5,6 +5,7 @@ import {vestibulares} from "@/content/vestibulares";
 import { olimpiadas } from "@/content/olimpiadas";
 import {internos} from "@/content/internos";
 import { Evento } from "@/types/calendarTypes";
+import { LucideCalendarCheck } from "lucide-react";
 
 export default function CalendarWidget() {
     const [eventosProximos, setEventosProximos] = useState<Array<Evento>>();
@@ -33,7 +34,8 @@ export default function CalendarWidget() {
             />
             <Separator className="my-2"/>
             <section className="max-w-72">
-                <h1 className="font-semibold text-left self-start">Próximos eventos</h1>
+                <h1 className="font-semibold text-left self-start flex flex-row
+                gap-2"> <LucideCalendarCheck/> Próximos eventos</h1>
                 <ul>
                     {eventosProximos && eventosProximos.map((evento, index) => (
                         <li key={index} className="ml-4">
