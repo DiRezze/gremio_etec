@@ -2,6 +2,7 @@ import {
   AppWindow,
   BadgeCheck,
   BookOpenCheck,
+  Bus,
   Instagram,
   LucideIcon,
   MessageCircleMoreIcon,
@@ -16,10 +17,16 @@ interface LinkInterface {
 }
 export const links: Array<LinkInterface> = [
   {
-    label: "Edital - Interclasse",
+    label: "Regulamento visita à Unesp",
     icon: BookOpenCheck,
-    href: "https://docs.google.com/document/d/1pQHPUML564ed5j9Hp3CGKWpgpSwi649R/edit?usp=sharing&ouid=111929754273037560206&rtpof=true&sd=true",
-    color: "#0F984B",
+    href: "https://drive.google.com/file/d/1uh_0STGPca1PCKigCDjyb8-o1I01H8LA/view?usp=sharing",
+    color: "#FD7F2C",
+  },
+  {
+    label: "Termo visita à Unesp",
+    icon: Bus,
+    href: "https://drive.google.com/file/d/1uf-evYQS2g6bL1WqoQTfwYqQs_GdE0FL/view?usp=sharing",
+    color: "#FD7F2C",
   },
   {
     label: "Canal no Whatsapp",
@@ -40,15 +47,9 @@ export const links: Array<LinkInterface> = [
     color: "#E4405F",
   },
   {
-    label: "Isenções Enem",
+    label: "Enem",
     icon: Wallet,
     href: "https://enem.inep.gov.br/participante/#!/inicial",
-    color: "#00ADEE",
-  },
-  {
-    label: "Simulado Fuvest",
-    icon: BadgeCheck,
-    href: "https://app.fuvest.br/login",
     color: "#00ADEE",
   },
 ];
