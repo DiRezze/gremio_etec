@@ -1,7 +1,7 @@
 import CalendarWidget from "@/components/custom/calendarWidget.tsx";
 import FooterRights from "@/components/custom/footerRights";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { BusIcon, InfoIcon } from "lucide-react";
+import { BusIcon } from "lucide-react";
 
 const Home = () => {
   return (
