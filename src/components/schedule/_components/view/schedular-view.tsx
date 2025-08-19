@@ -1,7 +1,10 @@
 "use client";
 
 
+import { internosFormat } from "@/content/internos";
 import SchedulerViewFilteration from "./schedular-view-filteration";
+import { olimpiadasFormat } from "@/content/olimpiadas";
+import { vestibularesFormat } from "@/content/vestibulares";
 
 export default function SchedulerView() {
 
@@ -14,7 +17,7 @@ export default function SchedulerView() {
           prev: "rounded-3xl"
         }
       }}
-      
+      eventList={[...internosFormat, ...olimpiadasFormat, ...vestibularesFormat]}
       />
     </div>
   );

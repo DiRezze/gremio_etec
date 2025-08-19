@@ -63,7 +63,7 @@ function Navbar() {
 
     return (
         <nav
-            className="flex-row align-items-center flex justify-content-between shadow p-4 top-0 z-50 sticky bg-background w-full">
+            className="flex-row align-items-center flex justify-content-between shadow p-4 top-0 z-[99] sticky bg-background w-full">
             <div className="items-center flex mx-8 gap-2">
                 <GraduationCap size={32}/>
                 <h1 className="md:text-2xl text-lg font-bold">Grêmio Control Z</h1>

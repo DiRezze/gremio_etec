@@ -145,6 +145,7 @@ const groupEventsByTimePeriod = (events: Event[] | undefined) => {
 };
 
 export default function DailyView({
+  events,
   prevButton,
   nextButton,
   CustomEventComponent,
@@ -152,6 +153,7 @@ export default function DailyView({
   stopDayEventSummary,
   classNames,
 }: {
+  events?: Event[],
   prevButton?: React.ReactNode;
   nextButton?: React.ReactNode;
   CustomEventComponent?: React.FC<Event>;
@@ -194,10 +196,9 @@ export default function DailyView({
     [currentDate]
   );
 
-  const dayEvents = getters.getEventsForDay(
-    currentDate?.getDate() || 0,
-    currentDate
-  );
+  const dayEvents = events
+  ? events.filter(ev => new Date(ev.startDate).toDateString() === currentDate.toDateString())
+  : getters.getEventsForDay(currentDate?.getDate() || 0, currentDate);
   
   // Calculate time groups once for all events
   const timeGroups = groupEventsByTimePeriod(dayEvents);

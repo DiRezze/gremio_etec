@@ -19,7 +19,7 @@ const SearchBar = ({ value, callback }:SearchBarProps) => {
   const mobileClasses =
     "fixed bottom-4 left-1/2 -translate-x-1/2 z-50 w-full max-w-md m-0 p-2 flex flex-row itens-center justify-center";
   const desktopClasses =
-    "relative bottom-0 left-0 translate-x-0 z-50 w-full rounded-none bg-background shadow-none p-0 m-0";
+    "relative bottom-0 left-0 translate-x-0 z-0 w-full rounded-none bg-background shadow-none p-0 m-0";
 
     const mobileInput = "pl-9 rounded-3xl shadow-xl -ml-2";
 

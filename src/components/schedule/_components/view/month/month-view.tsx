@@ -32,12 +32,14 @@ const pageTransitionVariants = {
 };
 
 export default function MonthView({
+  events,
   prevButton,
   nextButton,
   CustomEventComponent,
   CustomEventModal,
   classNames,
 }: {
+  events?: Event[];
   prevButton?: React.ReactNode;
   nextButton?: React.ReactNode;
   CustomEventComponent?: React.FC<Event>;
@@ -172,7 +174,6 @@ export default function MonthView({
     0
   ).getDate();
 
-
   return (
     <div>
       <div className="flex flex-col mb-4">
@@ -184,7 +185,12 @@ export default function MonthView({
           transition={{ duration: 0.5 }}
           className="text-3xl my-5 tracking-tighter font-bold"
         >
-          {currentDate.toLocaleString("default", { month: "long" }).charAt(0).toUpperCase() + currentDate.toLocaleString("default", { month: "long" }).slice(1)}{" de "}
+          {currentDate
+            .toLocaleString("default", { month: "long" })
+            .charAt(0)
+            .toUpperCase() +
+            currentDate.toLocaleString("default", { month: "long" }).slice(1)}
+          {" de "}
           {currentDate.getFullYear()}
         </motion.h2>
         <div className="flex gap-3">
@@ -197,7 +203,6 @@ export default function MonthView({
               onClick={handlePrevMonth}
             >
               <ArrowLeft />
-              
             </Button>
           )}
           {nextButton ? (
@@ -208,13 +213,16 @@ export default function MonthView({
               className={classNames?.next}
               onClick={handleNextMonth}
             >
-              
               <ArrowRight />
             </Button>
           )}
         </div>
       </div>
-      <AnimatePresence initial={false} custom={direction} mode="wait">
+      <AnimatePresence
+        initial={false}
+        custom={direction}
+        mode="wait"
+      >
         <motion.div
           key={`${currentDate.getFullYear()}-${currentDate.getMonth()}`}
           custom={direction}
@@ -243,7 +251,10 @@ export default function MonthView({
           ))}
 
           {Array.from({ length: startOffset }).map((_, idx) => (
-            <div key={`offset-${idx}`} className="h-[150px] opacity-50">
+            <div
+              key={`offset-${idx}`}
+              className="h-[150px] opacity-50"
+            >
               <div className={clsx("font-semibold relative text-3xl mb-1")}>
                 {lastDateOfPrevMonth - startOffset + idx + 1}
               </div>
@@ -251,7 +262,16 @@ export default function MonthView({
           ))}
 
           {daysInMonth.map((dayObj) => {
-            const dayEvents = getters.getEventsForDay(dayObj.day, currentDate);
+            const dayEvents = events
+              ? events.filter((ev) => {
+                  const evDate = new Date(ev.startDate);
+                  return (
+                    evDate.getDate() === dayObj.day &&
+                    evDate.getMonth() === currentDate.getMonth() &&
+                    evDate.getFullYear() === currentDate.getFullYear()
+                  );
+                })
+              : getters.getEventsForDay(dayObj.day, currentDate);
 
             return (
               <motion.div
@@ -262,9 +282,7 @@ export default function MonthView({
                 animate="center"
                 exit="exit"
               >
-                <Card
-                  className="shadow-md cursor-pointer overflow-hidden relative flex p-4 border h-full aspect-square"
-                >
+                <Card className="shadow-md cursor-pointer overflow-hidden relative flex p-4 border h-full aspect-square">
                   <div
                     className={clsx(
                       "font-semibold relative text-3xl mb-1",
@@ -320,9 +338,7 @@ export default function MonthView({
                   {/* Hover Text */}
                   {dayEvents.length === 0 && (
                     <div className="absolute inset-0 bg-primary/20 bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <span className="text-black tracking-tighter text-lg font-semibold">
-                        
-                      </span>
+                      <span className="text-black tracking-tighter text-lg font-semibold"></span>
                     </div>
                   )}
                 </Card>

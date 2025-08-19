@@ -12,7 +12,7 @@ import DailyView from "./day/daily-view";
 import MonthView from "./month/month-view";
 import WeeklyView from "./week/week-view";
 import { useModal } from "@/providers/modal-context";
-import { ClassNames, CustomComponents, Views } from "@/types/index";
+import { ClassNames, CustomComponents, Event, Views } from "@/types/index";
 import { cn } from "@/lib/utils";
 import CustomModal from "@/components/ui/custom-modal";
 
@@ -25,6 +25,7 @@ const animationConfig = {
 };
 
 export default function SchedulerViewFilteration({
+  eventList,
   views = {
     views: ["day", "month"],
     mobileViews: ["day","month"],
@@ -33,6 +34,7 @@ export default function SchedulerViewFilteration({
   CustomComponents,
   classNames,
 }: {
+  eventList?: Event[],
   views?: Views;
   stopDayEventSummary?: boolean;
   CustomComponents?: CustomComponents;
@@ -171,6 +173,7 @@ export default function SchedulerViewFilteration({
                 <AnimatePresence mode="wait">
                   <motion.div {...animationConfig}>
                     <DailyView
+                      events={eventList}
                       stopDayEventSummary={stopDayEventSummary}
                       classNames={classNames?.buttons}
                       prevButton={
@@ -216,6 +219,7 @@ export default function SchedulerViewFilteration({
                 <AnimatePresence mode="wait">
                   <motion.div {...animationConfig}>
                     <MonthView
+                    events={eventList}
                       classNames={classNames?.buttons}
                       prevButton={
                         CustomComponents?.customButtons?.CustomPrevButton
