@@ -18,13 +18,6 @@ const Home = () => {
             <span></span>
           </div>
           <div className="w-4/5 mt-6 flex flex-col gap-8 text-justify">
-            <Alert>
-              <BusIcon className="h-4 w-4" />
-              <AlertTitle>Visita à Unesp</AlertTitle>
-              <AlertDescription>
-                Os documentos necessários para inscrição na visita monitorada à Unesp Marília podem ser encontrados  <a href="/links" className="text-green-500 font-semibold underline">neste link</a>
-              </AlertDescription>
-            </Alert>
             <section>
               <h2 className="text-2xl font-bold mb-2">
                 O que é o Grêmio Estudantil?
