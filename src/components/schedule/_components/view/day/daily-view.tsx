@@ -191,10 +191,10 @@ export default function DailyView({
     []
   );
 
-  const getFormattedDayTitle = useCallback(
-    () => currentDate.toLocaleDateString("pt-BR", { weekday: "long" }).charAt(0).toUpperCase() + currentDate.toLocaleDateString("pt-BR", { weekday: "long" }).slice(1),
-    [currentDate]
-  );
+  const getFormattedDayTitle = useCallback(() => {
+    const fullDate = currentDate.toLocaleDateString("pt-BR", { dateStyle: "full" });
+    return fullDate.charAt(0).toUpperCase() + fullDate.slice(1);
+  }, [currentDate]);
 
   const dayEvents = events
   ? events.filter(ev => new Date(ev.startDate).toDateString() === currentDate.toDateString())
@@ -282,7 +282,7 @@ export default function DailyView({
   return (
     <div className="">
       <div className="flex justify-between gap-3 flex-wrap mb-5">
-        <h1 className="text-3xl font-semibold mb-4">
+        <h1 className="text-3xl my-5 tracking-tighter font-bold">
           {getFormattedDayTitle()}
         </h1>
 
