@@ -67,7 +67,7 @@ export const olimpiadas: Evento[] = [
   },
 ];
 
-export const olimpiadasFormat: Event[] = [
+export const olimpiadasFormat : Event[] = [
   // OBMEP
   {
     id: "obmep-1",

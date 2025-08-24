@@ -1,12 +1,12 @@
-import SchedulerView from "@/components/schedule/_components/view/schedular-view";
 import SchedulerWrapper from "@/components/schedule/_components/wrapper/schedular-wrapper"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { SchedulerProvider } from "@/providers/schedular-provider"
+import { Event } from "@/types";
 import { InfoIcon } from "lucide-react";
 
-const CalendarTab = () => {
+const CalendarTab = ({ eventsList }: { eventsList: Array<Event> }) => {
     return (
-    <SchedulerProvider weekStartsOn="monday">
+    <SchedulerProvider weekStartsOn="sunday">
               <Alert className="my-2">
               <InfoIcon className="h-4 w-4" />
               <AlertTitle>Em desenvolvimento</AlertTitle>
@@ -15,8 +15,7 @@ const CalendarTab = () => {
                 serão disponibilizadas em breve.
               </AlertDescription>
             </Alert>
-      <SchedulerWrapper
-      />
+      <SchedulerWrapper eventList={eventsList}/>
     </SchedulerProvider>
   )
 }
