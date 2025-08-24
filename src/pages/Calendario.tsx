@@ -1,163 +1,174 @@
-import {
-  Card,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card.tsx";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert.tsx";
-import { vestibulares } from "@/content/vestibulares";
-import { Blend, InfoIcon } from "lucide-react";
-import { Evento } from "@/types/calendarTypes";
-import { olimpiadas } from "@/content/olimpiadas";
-import { internos } from "@/content/internos";
-import { Button } from "@/components/ui/button";
+import { Tabs, TabsList, TabsContent, TabsTrigger } from "@/components/ui/tabs";
+import { Blend, CalendarDays, CheckSquare, ChevronDown } from "lucide-react";
+import Schedule from "./subpages/Schedule";
+import CalendarTab from "./subpages/Calendar";
+import SearchBar from "@/components/custom/searchBar";
+import { useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useEffect, useState, useMemo } from "react";
+import { Event } from "@/types";
+import { internosFormat } from "@/content/internos";
+import { olimpiadasFormat } from "@/content/olimpiadas";
+import { vestibularesFormat } from "@/content/vestibulares";
+import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
+import FooterRights from "@/components/custom/footerRights";
 
-function ordenarEventosPorData(
-  eventos: { nome: string; data: string; cor: string }[]
-) {
+function ordenarEventosPorData(eventos: Array<Event>) {
   const currentDate = new Date();
   return eventos
-    .filter((e) => new Date(e.data) >= currentDate)
-    .sort((a, b) => new Date(a.data).getTime() - new Date(b.data).getTime());
+    .filter((e) => new Date(e.startDate) >= currentDate)
+    .sort(
+      (a, b) =>
+        new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
+    );
 }
 
-function getEventosPassados(eventos: Array<Evento>) {
+function getEventosPassados(eventos: Array<Event>) {
   const currentDate = new Date();
-  return eventos.filter((e) => new Date(e.data) <= currentDate);
+  return eventos.filter((e) => new Date(e.startDate) <= currentDate);
 }
 
 const Calendario = () => {
   const { id } = useParams();
 
-  const [eventosAtuais, setEventosAtuais] = useState<Array<Evento>>([]);
+  const  [idState, setIdState] = useState<string|undefined>(id);
+
+  const [searchText, setSearchText] = useState<string>("");
+
+  const [currentEvents, setCurrentEvents] = useState<Array<Event>>([]);
+
   const [mostrarPassados, setMostrarPassados] = useState(false);
 
   useEffect(() => {
-    switch (id) {
+    switch (idState) {
       case "internos":
-        setEventosAtuais([...internos]);
+        setCurrentEvents([...internosFormat]);
         break;
       case "olimpiadas":
-        setEventosAtuais([...olimpiadas]);
+        setCurrentEvents([...olimpiadasFormat]);
         break;
       case "vestibulares":
-        setEventosAtuais([...vestibulares]);
+        setCurrentEvents([...vestibularesFormat]);
         break;
       default:
-        setEventosAtuais([...vestibulares, ...olimpiadas, ...internos]);
+        setCurrentEvents([
+          ...vestibularesFormat,
+          ...olimpiadasFormat,
+          ...internosFormat,
+        ]);
         break;
     }
-  }, [id]);
+  }, [idState]);
 
   const eventosOrdenados = useMemo(() => {
     if (mostrarPassados) {
-      return getEventosPassados(eventosAtuais).sort(
-        (a, b) => new Date(b.data).getTime() - new Date(a.data).getTime()
+      return getEventosPassados(currentEvents).sort(
+        (a, b) =>
+          new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
       );
     } else {
-      return ordenarEventosPorData(eventosAtuais);
+      return ordenarEventosPorData(currentEvents);
     }
-  }, [eventosAtuais, mostrarPassados]);
+  }, [currentEvents, mostrarPassados]);
+
+  const eventosFiltrados = useMemo(() => {
+    if (!searchText.trim()) return eventosOrdenados;
+    const texto = searchText.trim().toLowerCase();
+    return eventosOrdenados.filter(
+      (evento) =>
+        evento.title.toLowerCase().includes(texto) ||
+        evento.description?.toLowerCase().includes(texto)
+    );
+  }, [eventosOrdenados, searchText]);
+
+  const showBetaToast = () => {
+    toast("Atenção",
+      {
+        description: "Esta funcionalidade ainda pode ser instável",
+        action: {
+          label: <ChevronDown />,
+          onClick: () => null,
+        },
+      }
+    );
+  }
+  
 
   return (
     <div className="flex items-center flex-col">
       <h1 className="text-center text-3xl font-bold my-4">Calendário</h1>
       <hr className="mb-4 w-1/2 self-center" />
 
-      <main className="space-y-4 my-4 mx-2">
-        <section className="overflow-x-clip">
-          <div className="flex flex-row flex-wrap gap-2 items-center justify-center">
-            <span className="flex flex-row font-semibold items-center gap-2 my-2 mr-4">
-              <Blend />
-              Filtrar
-            </span>
-            <Button
-              variant={"outline"}
-              className="rounded-full"
-              onClick={() => {
-                setEventosAtuais([...vestibulares, ...olimpiadas, ...internos]);
-                setMostrarPassados(false);
-              }}
+      <Tabs defaultValue="schedule">
+        <div className="flex gap-2 justify-center flex-row-reverse">
+          <TabsList className="rounded-xl">
+            <TabsTrigger
+              onClick={showBetaToast}
+              value="schedule"
+              className="gap-2 rounded-xl"
             >
-              Tudo
-            </Button>
-            <Button
-              variant={"outline"}
-              className="rounded-full"
-              onClick={() => {
-                setEventosAtuais([...vestibulares]);
-                setMostrarPassados(false);
-              }}
+              <CheckSquare />
+              Agenda
+            </TabsTrigger>
+            <TabsTrigger
+              onClick={showBetaToast}
+              value="calendar"
+              className="gap-2 rounded-xl"
             >
-              Vestibulares
-            </Button>
-            <Button
-              variant={"outline"}
-              className="rounded-full"
-              onClick={() => {
-                setEventosAtuais([...olimpiadas]);
-                setMostrarPassados(false);
-              }}
-            >
-              Olimpíadas
-            </Button>
-            <Button
-              variant={"outline"}
-              className="rounded-full"
-              onClick={() => {
-                setEventosAtuais([...internos]);
-                setMostrarPassados(false);
-              }}
-            >
-              Eventos internos
-            </Button>
-            <Button
-              variant={"outline"}
-              className="rounded-full"
-              onClick={() => {
-                setEventosAtuais(
-                  getEventosPassados([
-                    ...vestibulares,
-                    ...olimpiadas,
-                    ...internos,
-                  ])
-                );
-                setMostrarPassados(true);
-              }}
-            >
-              Eventos Passados
-            </Button>
-          </div>
-        </section>
-        <Alert>
-          <InfoIcon className="h-4 w-4" />
-          <AlertTitle>Em desenvolvimento</AlertTitle>
-          <AlertDescription>
-            Algumas das funcionalidades dessa página encontram-se incompletas e
-            serão disponibilizadas em breve.
-          </AlertDescription>
-        </Alert>
-        {eventosOrdenados.length === 0 ? (
-          <p className="text-center text-gray-500">Nenhum evento disponível.</p>
-        ) : (
-          eventosOrdenados.map((evento, index) => (
-            <Card
-              key={index}
-              className="border-l-emerald-500 border-l-8"
-              style={{ borderLeftColor: `${evento.cor}` }}
-            >
-              <CardHeader>
-                <CardTitle>{evento.nome}</CardTitle>
-                <CardDescription>
-                  {new Date(evento.data).toLocaleDateString("pt-BR")}
-                </CardDescription>
-              </CardHeader>
-            </Card>
-          ))
-        )}
-      </main>
+              <CalendarDays />
+              Calendário
+            </TabsTrigger>
+          </TabsList>
+          <SearchBar
+            value={searchText}
+            callback={setSearchText}
+          
+          />
+        </div>
+        <section className="overflow-x-clip my-2">
+              <div className="flex flex-row flex-wrap gap-2 items-center justify-center">
+                <span className="flex flex-row font-semibold items-center gap-2 my-2 mr-4">
+                  <Blend />
+                  Filtrar
+                </span>
+                <Button
+                  variant={"outline"}
+                  className="rounded-full"
+                  onClick={()=>setIdState("tudo")}
+                >
+                  Tudo
+                </Button>
+                <Button
+                  variant={"outline"}
+                  className="rounded-full"
+                  onClick={()=>setIdState("vestibulares")}
+                >
+                  Vestibulares
+                </Button>
+                <Button
+                  variant={"outline"}
+                  className="rounded-full"
+                  onClick={()=>setIdState("olimpiadas")}
+                >
+                  Olimpíadas
+                </Button>
+                <Button
+                  variant={"outline"}
+                  className="rounded-full"
+                  onClick={()=>setIdState("internos")}
+                >
+                  Eventos internos
+                </Button>
+              </div>
+            </section>
+        <TabsContent value="schedule">
+          <Schedule currentEvents={eventosFiltrados} />
+        </TabsContent>
+        <TabsContent value="calendar">
+          <CalendarTab eventsList={eventosFiltrados} />
+        </TabsContent>
+      </Tabs>
+
       <div className="flex items-center flex-col my-4">
         <span className="text-neutral-500">
           Encontrou algum erro?{" "}
@@ -169,6 +180,7 @@ const Calendario = () => {
           </a>
         </span>
       </div>
+      <FooterRights />
     </div>
   );
 };

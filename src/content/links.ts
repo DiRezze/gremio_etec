@@ -4,6 +4,7 @@ import {
   BookOpenCheck,
   Bus,
   Instagram,
+  ListChecksIcon,
   LucideIcon,
   MessageCircleMoreIcon,
   Wallet,
@@ -16,18 +17,6 @@ interface LinkInterface {
   icon: LucideIcon;
 }
 export const links: Array<LinkInterface> = [
-  {
-    label: "Regulamento visita à Unesp",
-    icon: BookOpenCheck,
-    href: "https://drive.google.com/file/d/1uh_0STGPca1PCKigCDjyb8-o1I01H8LA/view?usp=sharing",
-    color: "#FD7F2C",
-  },
-  {
-    label: "Termo visita à Unesp",
-    icon: Bus,
-    href: "https://drive.google.com/file/d/1uf-evYQS2g6bL1WqoQTfwYqQs_GdE0FL/view?usp=sharing",
-    color: "#FD7F2C",
-  },
   {
     label: "Canal no Whatsapp",
     icon: MessageCircleMoreIcon,
@@ -48,7 +37,7 @@ export const links: Array<LinkInterface> = [
   },
   {
     label: "Enem",
-    icon: Wallet,
+    icon: ListChecksIcon,
     href: "https://enem.inep.gov.br/participante/#!/inicial",
     color: "#00ADEE",
   },
