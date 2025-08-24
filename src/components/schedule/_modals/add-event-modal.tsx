@@ -107,20 +107,20 @@ export default function AddEventModal({
     }
   }
 
-  const getButtonVariant = (color: string) => {
-    switch (color) {
-      case "blue":
-        return "default";
-      case "red":
-        return "destructive";
-      case "green":
-        return "success";
-      case "yellow":
-        return "warning";
-      default:
-        return "default";
-    }
-  };
+const getButtonVariant = (color: string) => {
+  switch (color) {
+    case "blue":
+      return "default";
+    case "red":
+      return "destructive";
+    case "green":
+      return "secondary";
+    case "yellow":
+      return "outline";
+    default:
+      return "default";
+  }
+};
 
   const onSubmit: SubmitHandler<EventFormData> = (formData) => {
     const newEvent: Event = {
