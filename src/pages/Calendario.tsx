@@ -1,5 +1,5 @@
 import { Tabs, TabsList, TabsContent, TabsTrigger } from "@/components/ui/tabs";
-import { Blend, CalendarDays, CheckSquare, ChevronDown } from "lucide-react";
+import { Blend, CalendarDays, CheckSquare, ChevronDown, Code2 } from "lucide-react";
 import Schedule from "./subpages/Schedule";
 import CalendarTab from "./subpages/Calendar";
 import SearchBar from "@/components/custom/searchBar";
@@ -82,20 +82,16 @@ const Calendario = () => {
   }, [eventosOrdenados, searchText]);
 
   const showBetaToast = () => {
-    toast("Atenção",
+    toast(<span className="flex gap-2 items-center flex-row"><Code2/>Atenção</span>,
       {
-        description: "Esta funcionalidade ainda pode ser instável",
-        action: {
-          label: <ChevronDown />,
-          onClick: () => null,
-        },
+        description: "Esta funcionalidade ainda está em desenvolvimento",
       }
     );
   }
   
 
   return (
-    <div className="flex items-center flex-col">
+    <div className="flex items-center flex-col bg-gradient-to-b from-background to-primary/10 min-h-svh">
       <h1 className="text-center text-3xl font-bold my-4">Calendário</h1>
       <hr className="mb-4 w-1/2 self-center" />
 
@@ -103,9 +99,8 @@ const Calendario = () => {
         <div className="flex gap-2 justify-center flex-row-reverse">
           <TabsList className="rounded-xl">
             <TabsTrigger
-              onClick={showBetaToast}
               value="schedule"
-              className="gap-2 rounded-xl"
+              className="gap-2 rounded-xl data-[state=active]:bg-primary data-[state=active]:text-white"
             >
               <CheckSquare />
               Agenda
@@ -113,7 +108,7 @@ const Calendario = () => {
             <TabsTrigger
               onClick={showBetaToast}
               value="calendar"
-              className="gap-2 rounded-xl"
+              className="gap-2 rounded-xl data-[state=active]:bg-primary data-[state=active]:text-white"
             >
               <CalendarDays />
               Calendário
@@ -122,7 +117,6 @@ const Calendario = () => {
           <SearchBar
             value={searchText}
             callback={setSearchText}
-          
           />
         </div>
         <section className="overflow-x-clip my-2">

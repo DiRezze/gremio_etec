@@ -63,10 +63,10 @@ function Navbar() {
 
     return (
         <nav
-            className="flex-row align-items-center flex justify-content-between shadow p-4 top-0 z-[99] sticky bg-background w-full">
+            className="flex-row align-items-center flex justify-content-between shadow p-4 top-0 z-[99] sticky bg-background w-full border-b-2 border-b-gray/10">
             <div className="items-center flex mx-8 gap-2">
-                <GraduationCap size={32}/>
-                <h1 className="md:text-2xl text-lg font-bold">Grêmio Control Z</h1>
+                <GraduationCap className="text-primary/90" size={32}/>
+                <h1 className="md:text-2xl text-lg font-bold text-primary">Grêmio Control Z</h1>
             </div>
 
             {isMobile ? (
@@ -92,16 +92,16 @@ function Navbar() {
                                 <NavigationMenuContent>
                                     <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                                         <li className="row-span-3">
-                                            <NavigationMenuLink asChild>
+                                            <NavigationMenuLink asChild className="bg-primary">
                                                 <a
-                                                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                                                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted to-muted/50 p-6 no-underline outline-none focus:shadow-md"
                                                     href="/calendario/tudo"
                                                 >
-                                                    <School className="h-6 w-6"/>
+                                                    <School className="h-8 w-8"/>
                                                     <div className="mb-2 mt-4 text-lg font-medium">
                                                         Geral
                                                     </div>
-                                                    <p className="text-sm leading-tight text-muted-foreground">
+                                                    <p className="text-sm leading-tight">
                                                         Calendário completo com eventos da Etec MAM, vestibulares,
                                                         olimpíadas e mais!
                                                     </p>
