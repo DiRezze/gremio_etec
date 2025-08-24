@@ -5,7 +5,7 @@ import { BusIcon } from "lucide-react";
 
 const Home = () => {
   return (
-    <div className="items-center justify-center w-full flex flex-col">
+    <div className="items-center justify-center w-full flex flex-col bg-gradient-to-b from-background to-primary/5">
       <h1 className="font-bold text-3xl mt-4 text-center text-green-600">
         Control Z
       </h1>
