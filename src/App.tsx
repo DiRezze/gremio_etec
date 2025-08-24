@@ -1,5 +1,5 @@
 import MainLayout from "./components/layouts/MainLayout";
-import {ThemeProvider} from "@/providers/theme-provider.tsx";
+import { ThemeProvider } from "@/providers/theme-provider";
 
 const App = () => {
   return (
