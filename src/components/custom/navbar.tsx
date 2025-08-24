@@ -17,13 +17,7 @@ import {useEffect, useState} from "react";
 import {Button} from "@/components/ui/button.tsx";
 import {useTheme} from "@/providers/theme-provider.tsx";
 
-const components: { title: string; href: string; description: string }[] = [
-    {
-        title: "Finaceiro",
-        href: "/financeiro",
-        description:
-            "Confira os gastos e levantamento de verba do grêmio",
-    },
+const components: { title: string; href: string; description: string }[] = [    
     {
         title: "Notícias",
         href: "/noticias",

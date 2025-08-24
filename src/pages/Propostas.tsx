@@ -3,7 +3,7 @@ import { Card, CardHeader } from "@/components/ui/card.tsx";
 
 const Propostas = () => {
   return (
-    <div className="flex items-center flex-col">
+    <div className="flex items-center flex-col bg-gradient-to-b from-background to-primary/5 min-h-svh">
       <h1 className="text-center text-3xl font-bold my-4">Propostas</h1>
       <hr className="mb-4 w-1/2 self-center" />
       <main className="w-full flex flex-col space-y-4 my-4">

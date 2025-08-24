@@ -6,7 +6,7 @@ import { links } from "@/content/links.ts";
 
 export default function LinkTree() {
   return (
-    <main className="flex flex-col items-center bg-background overflow-x-hidden">
+    <main className="flex flex-col items-center bg-background overflow-x-hidden ">
       <div className="relative w-full h-[250px] md:h-[400px] lg:h-[500px]">
         <div className="mask-link-tree-img mask-to-transparent w-full h-full absolute top-0 left-0 z-0"></div>
         <div className="absolute mb-4 bottom-[32px] left-0 right-0 z-10">

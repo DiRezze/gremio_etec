@@ -8,6 +8,7 @@ import ErrorElement from "@/components/custom/errorElement.tsx";
 import LinkTree from "@/pages/LinkTree.tsx";
 import Financas from "@/pages/Financas.tsx";
 import Propostas from "@/pages/Propostas.tsx";
+import Noticia from "@/pages/subpages/Noticia";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
       { path: "sobre", element: <About /> },
       { path: "calendario/:id", element: <Calendario /> },
       { path: "noticias", element: <Noticias /> },
+      { path: "noticia/:id", element: <Noticia /> },
       { path: "financeiro", element: <Financas /> },
       { path: "propostas", element: <Propostas /> },
       { path: "links", element: <LinkTree /> },
