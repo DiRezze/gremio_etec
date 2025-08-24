@@ -1,5 +1,6 @@
 import CalendarWidget from "@/components/custom/calendarWidget.tsx";
 import FooterRights from "@/components/custom/footerRights";
+import UltimasNoticias from "@/components/custom/ultimasNoticias";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { BusIcon } from "lucide-react";
 
@@ -18,6 +19,7 @@ const Home = () => {
             <span></span>
           </div>
           <div className="w-4/5 mt-6 flex flex-col gap-8 text-justify">
+            <UltimasNoticias/>
             <section>
               <h2 className="text-2xl font-bold mb-2">
                 O que é o Grêmio Estudantil?
@@ -27,18 +29,7 @@ const Home = () => {
                 O Grêmio Estudantil é a organização que representa os interesses
                 dos estudantes na escola. Ele permite que os alunos discutam,
                 criem e fortaleçam inúmeras possibilidades de ação tanto no
-                próprio ambiente escolar como na comunidade. O Grêmio é também
-                um importante espaço de aprendizagem, cidadania, convivência,
-                responsabilidade e de luta por direitos.
-              </p>
-              <p className="text-lg leading-relaxed indent-4">
-                Por isso, é importante deixar claro que um de seus principais
-                objetivos é contribuir para aumentar a participação dos alunos
-                nas atividades escolares, organização de campeonatos, palestras,
-                projetos e discussões, fazendo com que eles tenham voz ativa e
-                participem – junto com pais, funcionários, professores,
-                coordenadores e diretores – da programação e da construção das
-                regras dentro da escola.
+                próprio ambiente escolar como na comunidade.
               </p>
             </section>
 
