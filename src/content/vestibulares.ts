@@ -286,4 +286,57 @@ export const vestibularesFormat: Event[] = [
     variant: "danger",
     description: "",
   },
+  // provao paulista
+  {
+    id: "provao-3serie-1",
+    title: "Provão Paulista 3ª série - 1º dia (Linguagens, Ciências da Natureza e Redação)",
+    startDate: new Date("2025-11-04T00:00:00-03:00"),
+    endDate: new Date("2025-11-04T23:59:59-03:00"),
+    variant: "success",
+    description: "",
+  },
+  {
+    id: "provao-3serie-2",
+    title: "Provão Paulista 3ª série - 2º dia (Matemática e Ciências Humanas)",
+    startDate: new Date("2025-11-05T00:00:00-03:00"),
+    endDate: new Date("2025-11-05T23:59:59-03:00"),
+    variant: "success",
+    description: "",
+  },
+
+  // Provão Paulista - 1ª série
+  {
+    id: "provao-1serie-1",
+    title: "Provão Paulista 1ª série - 1º dia (Linguagens e Ciências da Natureza)",
+    startDate: new Date("2025-11-06T00:00:00-03:00"),
+    endDate: new Date("2025-11-06T23:59:59-03:00"),
+    variant: "success",
+    description: "",
+  },
+  {
+    id: "provao-1serie-2",
+    title: "Provão Paulista 1ª série - 2º dia (Matemática e Ciências Humanas)",
+    startDate: new Date("2025-11-07T00:00:00-03:00"),
+    endDate: new Date("2025-11-07T23:59:59-03:00"),
+    variant: "success",
+    description: "",
+  },
+
+  // Provão Paulista - 2ª série
+  {
+    id: "provao-2serie-1",
+    title: "Provão Paulista 2ª série - 1º dia (Linguagens e Ciências da Natureza)",
+    startDate: new Date("2025-11-11T00:00:00-03:00"),
+    endDate: new Date("2025-11-11T23:59:59-03:00"),
+    variant: "success",
+    description: "",
+  },
+  {
+    id: "provao-2serie-2",
+    title: "Provão Paulista 2ª série - 2º dia (Matemática e Ciências Humanas)",
+    startDate: new Date("2025-11-12T00:00:00-03:00"),
+    endDate: new Date("2025-11-12T23:59:59-03:00"),
+    variant: "success",
+    description: "",
+  },
 ];
