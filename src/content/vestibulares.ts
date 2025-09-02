@@ -116,18 +116,9 @@ export const vestibulares: Evento[] = [
 export const vestibularesFormat: Event[] = [
   // Fuvest
   {
-    id: "fuvest-inscricao-inicio",
-    title: "Fuvest - Início das Inscrições",
+    id: "fuvest-inscricao",
+    title: "Fuvest - Inscrições",
     startDate: new Date("2025-08-18T00:00:00-03:00"),
-    endDate: new Date("2025-08-18T23:59:59-03:00"),
-    variant: "primary",
-    description: "",
-    // color: "#00ADEE", // adicione se quiser usar cor HEX
-  },
-  {
-    id: "fuvest-inscricao-fim",
-    title: "Fuvest - Fim das Inscrições",
-    startDate: new Date("2025-10-07T00:00:00-03:00"),
     endDate: new Date("2025-10-07T23:59:59-03:00"),
     variant: "primary",
     description: "",

@@ -1,9 +1,4 @@
-import {
-  Card,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card.tsx";
+import ScheduleEvent from "@/components/custom/scheduleEvent";
 import { Event } from "@/types";
 
 interface ScheduleProps{
@@ -18,18 +13,7 @@ const Schedule = ({currentEvents}:ScheduleProps) => {
               <p className="text-center text-gray-500">Nenhum evento disponível.</p>
             ) : (
               currentEvents.map((event, index) => (
-                <Card
-                  key={index}
-                  className="border-l-emerald-500 border-l-8 w-full sm:w-[600px]"
-                >
-                  <CardHeader>
-                    <CardTitle>{event.title}</CardTitle>
-                    <CardDescription>{event.description}</CardDescription>
-                    <CardDescription>
-                      {new Date(event.startDate).toLocaleDateString("pt-BR")} - {new Date(event.endDate).toLocaleDateString("pt-BR")}
-                    </CardDescription>
-                  </CardHeader>
-                </Card>
+                <ScheduleEvent ev={event} key={index} />
               ))
             )}
           </main>
