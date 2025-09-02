@@ -14,9 +14,9 @@ import { toast } from "sonner";
 import FooterRights from "@/components/custom/footerRights";
 
 function ordenarEventosPorData(eventos: Array<Event>) {
-  const currentDate = new Date();
+  // const currentDate = new Date();
   return eventos
-    .filter((e) => new Date(e.endDate) >= currentDate)
+    // .filter((e) => new Date(e.endDate) >= currentDate)
     .sort(
       (a, b) =>
         new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
