@@ -16,7 +16,7 @@ import FooterRights from "@/components/custom/footerRights";
 function ordenarEventosPorData(eventos: Array<Event>) {
   const currentDate = new Date();
   return eventos
-    .filter((e) => new Date(e.startDate) >= currentDate)
+    .filter((e) => new Date(e.endDate) >= currentDate)
     .sort(
       (a, b) =>
         new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
@@ -25,7 +25,7 @@ function ordenarEventosPorData(eventos: Array<Event>) {
 
 function getEventosPassados(eventos: Array<Event>) {
   const currentDate = new Date();
-  return eventos.filter((e) => new Date(e.startDate) <= currentDate);
+  return eventos.filter((e) => new Date(e.endDate) <= currentDate);
 }
 
 const Calendario = () => {
