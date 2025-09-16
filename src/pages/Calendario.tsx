@@ -1,5 +1,5 @@
 import { Tabs, TabsList, TabsContent, TabsTrigger } from "@/components/ui/tabs";
-import { Blend, CalendarDays, CheckSquare, ChevronDown, Code2 } from "lucide-react";
+import { Blend, CalendarDays, CheckSquare, Code2 } from "lucide-react";
 import Schedule from "./subpages/Schedule";
 import CalendarTab from "./subpages/Calendar";
 import SearchBar from "@/components/custom/searchBar";
@@ -14,30 +14,20 @@ import { toast } from "sonner";
 import FooterRights from "@/components/custom/footerRights";
 
 function ordenarEventosPorData(eventos: Array<Event>) {
-  // const currentDate = new Date();
-  return eventos
-    // .filter((e) => new Date(e.endDate) >= currentDate)
-    .sort(
+  return eventos.sort(
       (a, b) =>
         new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
     );
 }
 
-function getEventosPassados(eventos: Array<Event>) {
-  const currentDate = new Date();
-  return eventos.filter((e) => new Date(e.endDate) <= currentDate);
-}
-
 const Calendario = () => {
   const { id } = useParams();
 
-  const  [idState, setIdState] = useState<string|undefined>(id);
+  const [idState, setIdState] = useState<string|undefined>(id);
 
   const [searchText, setSearchText] = useState<string>("");
 
   const [currentEvents, setCurrentEvents] = useState<Array<Event>>([]);
-
-  const [mostrarPassados, setMostrarPassados] = useState(false);
 
   useEffect(() => {
     switch (idState) {
@@ -61,15 +51,8 @@ const Calendario = () => {
   }, [idState]);
 
   const eventosOrdenados = useMemo(() => {
-    if (mostrarPassados) {
-      return getEventosPassados(currentEvents).sort(
-        (a, b) =>
-          new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
-      );
-    } else {
-      return ordenarEventosPorData(currentEvents);
-    }
-  }, [currentEvents, mostrarPassados]);
+    return ordenarEventosPorData(currentEvents);
+  }, [currentEvents]);
 
   const eventosFiltrados = useMemo(() => {
     if (!searchText.trim()) return eventosOrdenados;
